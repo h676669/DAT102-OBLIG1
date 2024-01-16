@@ -14,7 +14,7 @@ public class Film {
 
     public Film(int filmnr, int ar, String filmskaper, String tittel, String filmselskap) {
         this.filmnr = filmnr;
-        this.år = ar;
+        this.ar = ar;
         this.filmskaper = filmskaper;
         this.tittel = tittel;
         this.filmselskap = filmselskap;
@@ -60,12 +60,12 @@ public class Film {
         this.sjanger = sjanger;
     }
 
-    @Override
+    //@Override
     public boolean equals(Film film1, Film film2) {
         return film1.getAr() == film2.getAr();
     }
 
-    @Override
+    //@Override
     public boolean hashCode(Film film1, Film film2) {
         return film1.hashCode() == film2.hashCode();
     }
