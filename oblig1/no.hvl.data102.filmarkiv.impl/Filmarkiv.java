@@ -85,5 +85,15 @@ public class Filmarkiv implements FilmarkivADT {
             Filmarkiv[storrelseFilm] = nyFilm;
             storrelseFilm++;
         }
+        else{
+            Filmarkiv = kopier(Filmarkiv);
+        }
+    }
+    private Film[] kopier(Film[] Filmarkiv){
+        Film[] kopi = new Film[Filmarkiv.length*2];
+        for(int i = 0; i < Filmarkiv.length;i++){
+            kopi[i] = Filmarkiv[i];
+        }
+        return kopi;
     }
 }
