@@ -1,5 +1,7 @@
 package no.hvl.data102.filmarkiv.klient;
 
+import no.hvl.data102.filmarkiv.adt.FilmarkivADT;
+
 public class Tekstgrensesnitt {
     // Leser inn opplysninger om en film fra tastatur og returnere et Film-objekt
     public Film lesFilm() {
