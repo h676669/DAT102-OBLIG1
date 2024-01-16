@@ -24,12 +24,26 @@ public class Filmarkiv implements FilmarkivADT {
 
     @Override
     public boolean slettFilm(int filmnr) {
-        return false;
+        if(Filmarkiv[filmnr] != null){
+            Filmarkiv[filmnr] = null;
+            storrelseFilm--;
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
     @Override
     public Film[] soekTittel(String delstreng) {
-        return new Film[0];
+        Film[] medDelStreng = new Film[storrelseFilm];
+        for(int i = 0; i < medDelStreng.length; i++){
+            if(){
+
+            }
+        }
+
+        return medDelStreng;
     }
 
     @Override
@@ -49,6 +63,9 @@ public class Filmarkiv implements FilmarkivADT {
 
     @Override
     public void leggTilFilm(Film nyFilm) {
-
+        if(storrelseFilm != Filmarkiv.length){
+            Filmarkiv[storrelseFilm] = nyFilm;
+            storrelseFilm++;
+        }
     }
 }
