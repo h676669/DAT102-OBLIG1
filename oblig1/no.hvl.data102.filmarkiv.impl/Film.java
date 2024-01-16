@@ -1,5 +1,7 @@
 package no.hvl.data102.filmarkiv.impl;
 
+import java.util.Objects;
+
 public class Film {
 
     private int filmnr, ar;
@@ -75,6 +77,6 @@ public class Film {
 
     @Override
     public int hashCode() {
-        return this.hashCode();
+        return Objects.hash(filmnr);
     }
 }
