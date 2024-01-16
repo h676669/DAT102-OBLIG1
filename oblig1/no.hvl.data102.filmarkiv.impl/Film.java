@@ -44,7 +44,7 @@ public class Film {
         this.filmskaper = filmskaper;
     }
 
-    public String getTittel(String tittel) {
+    public String getTittel() {
         return tittel;
     }
 
@@ -60,13 +60,13 @@ public class Film {
         this.sjanger = sjanger;
     }
 
-    //@Override
-    public boolean equals(Film film1, Film film2) {
-        return film1.getAr() == film2.getAr();
+    @Override
+    public boolean equals(Object film2) {
+        return
     }
 
-    //@Override
-    public boolean hashCode(Film film1, Film film2) {
-        return film1.hashCode() == film2.hashCode();
+    @Override
+    public int hashCode() {
+        return 1; //???
     }
 }
