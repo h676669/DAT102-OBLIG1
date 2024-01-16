@@ -4,18 +4,18 @@ import no.hvl.data102.filmarkiv.adt.FilmarkivADT;
 
 
 public class Filmarkiv implements FilmarkivADT {
-    private Film[] Filmarkiv;
+    private Film[] filmarkiv;
     private int storrelseFilm;
 
 
     public Filmarkiv(int antall){
-        Filmarkiv = new Film[antall];
+        filmarkiv = new Film[antall];
         storrelseFilm = 0;
     }
     @Override
     public Film finnFilm(int nr) {
-        if(Filmarkiv[nr] != null){
-            return Filmarkiv[nr];
+        if(filmarkiv[nr] != null){
+            return filmarkiv[nr];
         }
         else {
             return null;
@@ -24,8 +24,8 @@ public class Filmarkiv implements FilmarkivADT {
 
     @Override
     public boolean slettFilm(int filmnr) {
-        if(Filmarkiv[filmnr] != null){
-            Filmarkiv[filmnr] = null;
+        if(filmarkiv[filmnr] != null){
+            filmarkiv[filmnr] = null;
             storrelseFilm--;
             return true;
         }
@@ -39,8 +39,8 @@ public class Filmarkiv implements FilmarkivADT {
         int nyLengde = 0;
         Film[] medDelStreng = new Film[storrelseFilm];
         for(int i = 0; i < medDelStreng.length; i++){
-            if(Filmarkiv[i].getTittel().contains(delstreng)){
-                medDelStreng[nyLengde] = Filmarkiv[i];
+            if(filmarkiv[i].getTittel().contains(delstreng)){
+                medDelStreng[nyLengde] = filmarkiv[i];
                 nyLengde++;
             }
         }
@@ -53,8 +53,8 @@ public class Filmarkiv implements FilmarkivADT {
         int nyLengde = 0;
         Film[] medDelStreng = new Film[storrelseFilm];
         for(int i = 0; i < medDelStreng.length; i++){
-            if(Filmarkiv[i].getFilmskaper().contains(delstreng)){
-                medDelStreng[nyLengde] = Filmarkiv[i];
+            if(filmarkiv[i].getFilmskaper().contains(delstreng)){
+                medDelStreng[nyLengde] = filmarkiv[i];
                 nyLengde++;
             }
         }
@@ -71,8 +71,8 @@ public class Filmarkiv implements FilmarkivADT {
         int nyLengde = 0;
         Film[] medDelStreng = new Film[storrelseFilm];
         for(int i = 0; i < medDelStreng.length; i++){
-            if(Filmarkiv[i].getSjanger() == sjanger){
-                medDelStreng[nyLengde] = Filmarkiv[i];
+            if(filmarkiv[i].getSjanger() == sjanger){
+                medDelStreng[nyLengde] = filmarkiv[i];
                 nyLengde++;
             }
         }
@@ -81,12 +81,12 @@ public class Filmarkiv implements FilmarkivADT {
 
     @Override
     public void leggTilFilm(Film nyFilm) {
-        if(storrelseFilm != Filmarkiv.length){
-            Filmarkiv[storrelseFilm] = nyFilm;
+        if(storrelseFilm != filmarkiv.length){
+            filmarkiv[storrelseFilm] = nyFilm;
             storrelseFilm++;
         }
         else{
-            Filmarkiv = kopier(Filmarkiv);
+            filmarkiv = kopier(filmarkiv);
         }
     }
     private Film[] kopier(Film[] Filmarkiv){
