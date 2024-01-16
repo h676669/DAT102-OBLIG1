@@ -1,7 +1,9 @@
 package no.hvl.data102.filmarkiv.klient;
 
+import no.hvl.data102.filmarkiv.adt.FilmarkivADT;
+
 public class Meny {
-    private Tekstgrensesnitt tekstgr;
+    private Tekstgrensesnitt tekstgr implements FilmarkivADT;
     private FilmarkivADT filmarkiv;
     public Meny(FilmarkivADT filmarkiv){
         tekstgr = new Tekstgrensesnitt();
