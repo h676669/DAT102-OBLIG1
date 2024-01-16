@@ -96,4 +96,14 @@ public class Filmarkiv implements FilmarkivADT {
         }
         return kopi;
     }
+    private Film[] trimTab(Film[] tab, int n) {
+// n er antall elementer
+        Film[] nytab = new Film[n];
+        int i = 0;
+        while (i < n) {
+            nytab[i] = tab[i];
+            i++;
+        }
+        return nytab;
+    }
 }
