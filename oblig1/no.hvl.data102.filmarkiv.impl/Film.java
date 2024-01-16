@@ -1,5 +1,7 @@
 package no.hvl.data102.filmarkiv.impl;
 
+import java.util.Objects;
+
 public class Film {
 
     private int filmnr, ar;
@@ -60,13 +62,21 @@ public class Film {
         this.sjanger = sjanger;
     }
 
-    //@Override
-    public boolean equals(Film film1, Film film2) {
-        return film1.getAr() == film2.getAr();
+    @Override
+    public boolean equals(Object film2) {
+        if (film2 == null) {
+            return false;
+        }
+        if (this == film2) {
+            return true;
+        }
+        Film other = (Film) film2;
+
+        return this.filmnr == other.getFilmnr();
     }
 
-    //@Override
-    public boolean hashCode(Film film1, Film film2) {
-        return film1.hashCode() == film2.hashCode();
+    @Override
+    public int hashCode() {
+        return Objects.hash(filmnr);
     }
 }
