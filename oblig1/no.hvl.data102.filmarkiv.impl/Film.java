@@ -62,11 +62,19 @@ public class Film {
 
     @Override
     public boolean equals(Object film2) {
-        return
+        if (film2 == null) {
+            return false;
+        }
+        if (this == film2) {
+            return true;
+        }
+        Film other = (Film) film2;
+
+        return this.filmnr == other.getFilmnr();
     }
 
     @Override
     public int hashCode() {
-        return 1; //???
+        return this.hashCode();
     }
 }
