@@ -2,16 +2,24 @@ package no.hvl.data102.filmarkiv.impl;
 
 import no.hvl.data102.filmarkiv.adt.FilmarkivADT;
 
+
 public class Filmarkiv implements FilmarkivADT {
     private Film[] Filmarkiv;
+    private int storrelseFilm;
 
 
     public Filmarkiv(int antall){
         Filmarkiv = new Film[antall];
+        storrelseFilm = 0;
     }
     @Override
     public Film finnFilm(int nr) {
-        return null;
+        if(Filmarkiv[nr] != null){
+            return Filmarkiv[nr];
+        }
+        else {
+            return null;
+        }
     }
 
     @Override
