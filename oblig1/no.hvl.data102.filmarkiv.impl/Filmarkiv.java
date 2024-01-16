@@ -36,10 +36,12 @@ public class Filmarkiv implements FilmarkivADT {
 
     @Override
     public Film[] soekTittel(String delstreng) {
+        int nyLengde = 0;
         Film[] medDelStreng = new Film[storrelseFilm];
         for(int i = 0; i < medDelStreng.length; i++){
-            if(){
-
+            if(Filmarkiv[i].getTittel().contains(delstreng)){
+                medDelStreng[nyLengde] = Filmarkiv[i];
+                nyLengde++;
             }
         }
 

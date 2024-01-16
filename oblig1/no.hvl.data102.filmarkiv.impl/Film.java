@@ -44,7 +44,7 @@ public class Film {
         this.filmskaper = filmskaper;
     }
 
-    public String getTittel(String tittel) {
+    public String getTittel() {
         return tittel;
     }
 
