@@ -60,12 +60,12 @@ public class Film {
         this.sjanger = sjanger;
     }
 
-    @Override
+    //@Override
     public boolean equals(Film film1, Film film2) {
         return film1.getAr() == film2.getAr();
     }
 
-    @Override
+    //@Override
     public boolean hashCode(Film film1, Film film2) {
         return film1.hashCode() == film2.hashCode();
     }
