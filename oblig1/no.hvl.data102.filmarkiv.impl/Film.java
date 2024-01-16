@@ -59,4 +59,14 @@ public class Film {
     public void setSjanger(Sjanger sjanger) {
         this.sjanger = sjanger;
     }
+
+    @Override
+    public boolean equals(Film film1, Film film2) {
+        return film1.getAr() == film2.getAr();
+    }
+
+    @Override
+    public boolean hashCode(Film film1, Film film2) {
+        return film1.hashCode() == film2.hashCode();
+    }
 }
