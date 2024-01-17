@@ -106,4 +106,10 @@ public class Filmarkiv implements FilmarkivADT {
         }
         return nytab;
     }
+    public int getStorrelseFilm(){
+        return storrelseFilm;
+    }
+    public void setStorrelseFilm(int storrelseFilm){
+        this.storrelseFilm = storrelseFilm;
+    }
 }
