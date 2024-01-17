@@ -2,7 +2,7 @@ import no.hvl.data102.filmarkiv.impl.Film;
 import no.hvl.data102.filmarkiv.impl.Filmarkiv;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 public class FilmarkivTest {
@@ -12,6 +12,10 @@ public class FilmarkivTest {
         Film testfilm1 = new Film(10,2012,"test","test","test");
 
         testFilmer.leggTilFilm(testfilm1);
+        testFilmer.leggTilFilm(testfilm1);
+        assertEquals(testFilmer.antall(), 2);
     }
+
+    
 
 }

@@ -7,6 +7,7 @@ public class Tekstgrensesnitt {
     // Leser inn opplysninger om en film fra tastatur og returnere et Film-objekt
     public Film lesFilm() {
 // TODO
+        return null;
     }
 
     // Skriver ut en film med alle opplysninger på skjerm (husk tekst for sjanger)
