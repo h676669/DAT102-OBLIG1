@@ -7,17 +7,9 @@ import java.util.Scanner;
 
 public class Tekstgrensesnitt {
     private Film film;
-    public Tekstgrensesnitt(int filmnr, int ar, String filmskaper, String tittel, String filmselskap){
-        film=new Film();
-       film.setFilmnr(filmnr);
-       film.setAr(ar);
-       film.setFilmskaper(filmskaper);
-       film.setTittel(tittel);
-       film.setFilmselskap(filmselskap);
-    //   film.setSjanger(sjanger);
-    }
     // Leser inn opplysninger om en film fra tastatur og returnere et Film-objekt
     public Film lesFilm() {
+        film=new Film();
         Scanner lesInn = new Scanner(System.in);
         System.out.print("Skriv inn filmnummer");
         int filmnr = lesInn.nextInt();
