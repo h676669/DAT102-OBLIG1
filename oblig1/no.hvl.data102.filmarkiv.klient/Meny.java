@@ -22,38 +22,45 @@ public class Meny {
                 "\n 4: Søk etter tittel" +
                 "\n 5: Søk etter produsent" +
                 "\n 6: Antall filmer og antall i hver sjanger" +
-                "\n 7: Stop");
+                "\n 7: Finn filmnummer"+
+                "\n 8: Stop");
+        System.out.println("|:");
 
         String inputString = insc.nextLine();
         int input = Integer.parseInt(inputString);
         boolean stop = false;
 
         leggTilStartFilmer(filmarkiv);
-        while(!stop){
+        while(!stop) {
             Scanner ibruk = new Scanner(System.in);
-            switch (input){
+            switch (input) {
                 case 1:
                     filmarkiv.leggTilFilm(tekstgr.lesFilm());
                     break;
                 case 2:
                     System.out.println("Skriv inn en delstring til filmen du leter etter");
-                    tekstgr.skrivUtFilmDelstrengITittel(filmarkiv,ibruk.nextLine());
+                    tekstgr.skrivUtFilmDelstrengITittel(filmarkiv, ibruk.nextLine());
                     break;
                 case 3:
-
+                    System.out.println("Skriv inn filmnummeret til filmen du vil slette");
+                    System.out.println("Filmnummeret kan finnest med bruk av ");
+                    filmarkiv.slettFilm(ibruk.nextInt());
                     break;
                 case 4:
-                    System.out.println("Skriv inn tittelen du vil søk etter");
-                    tekstgr.skrivUtFilmDelstrengITittel(filmarkiv,ibruk.nextLine());
+                    System.out.println("Skriv inn tittelen du vil søke etter");
+                    tekstgr.skrivUtFilmDelstrengITittel(filmarkiv, ibruk.nextLine());
                     break;
                 case 5:
                     System.out.println("Hvilken produsent letter du etter? ");
-                    tekstgr.skrivUtFilmProdusent(filmarkiv,ibruk.nextLine());
+                    tekstgr.skrivUtFilmProdusent(filmarkiv, ibruk.nextLine());
                     break;
                 case 6:
                     tekstgr.skrivUtStatistikk(filmarkiv);
                     break;
                 case 7:
+
+                    break;
+                case 8:
                     stop = true;
                     break;
                 default:
@@ -61,10 +68,6 @@ public class Meny {
                     break;
             }
         }
-
-// legg inn en del forhåndsdefinerte filmer for å teste metodene
-// ..
-// TODO
     }
     private void leggTilStartFilmer(FilmarkivADT filmarkiv){
         Film nummer1 = new Film();
