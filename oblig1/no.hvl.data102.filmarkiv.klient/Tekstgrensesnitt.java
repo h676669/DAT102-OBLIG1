@@ -3,16 +3,49 @@ package no.hvl.data102.filmarkiv.klient;
 import no.hvl.data102.filmarkiv.adt.FilmarkivADT;
 import no.hvl.data102.filmarkiv.impl.Film;
 
+import java.util.Scanner;
+
 public class Tekstgrensesnitt {
+    private Film film;
+    public Tekstgrensesnitt(int filmnr, int ar, String filmskaper, String tittel, String filmselskap){
+        film=new Film();
+       film.setFilmnr(filmnr);
+       film.setAr(ar);
+       film.setFilmskaper(filmskaper);
+       film.setTittel(tittel);
+       film.setFilmselskap(filmselskap);
+    //   film.setSjanger(sjanger);
+    }
     // Leser inn opplysninger om en film fra tastatur og returnere et Film-objekt
     public Film lesFilm() {
-// TODO
-        return null;
+        Scanner lesInn = new Scanner(System.in);
+        System.out.print("Skriv inn filmnummer");
+        int filmnr = lesInn.nextInt();
+        System.out.print("Skriv inn ar");
+        int ar = lesInn.nextInt();
+        System.out.print("Skriv inn filmskaper");
+        String filmskaper = lesInn.nextLine();
+        System.out.print("Skriv inn tittel");
+        String setTittel = lesInn.nextLine();
+        System.out.print("Skriv inn filmselskap");
+        String filmselskap=lesInn.nextLine();
+        System.out.print("Skriv inn Sjanger");
+        film.setFilmnr(filmnr);
+        film.setAr(ar);
+        film.setFilmskaper(filmskaper);
+        film.setTittel(setTittel);
+        film.setFilmselskap(filmselskap);
+        return film;
     }
+
 
     // Skriver ut en film med alle opplysninger på skjerm (husk tekst for sjanger)
     public void skrivUtFilm(Film film) {
-// TODO
+        System.out.println("Filmnummer: " + film.getFilmnr());
+        System.out.println("År: " + film.getAr());
+        System.out.println("Filmskaper: " + film.getFilmskaper());
+        System.out.println("Tittel: " + film.getTittel());
+        System.out.println("Filmselskap: " + film.getFilmselskap());
     }
 
     // Skriver ut alle filmer med en spesiell delstreng i tittelen
