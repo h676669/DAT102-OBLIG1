@@ -14,7 +14,7 @@ public class Tekstgrensesnitt {
         Scanner lesInn = new Scanner(System.in);
         System.out.print("Skriv inn filmnummer");
         int filmnr = lesInn.nextInt();
-        System.out.print("Skriv inn ar");
+        System.out.print("Skriv inn år");
         int ar = lesInn.nextInt();
         System.out.print("Skriv inn filmskaper");
         String filmskaper = lesInn.nextLine();

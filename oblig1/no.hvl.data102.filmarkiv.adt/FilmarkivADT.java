@@ -9,7 +9,7 @@ public interface FilmarkivADT {
      * @param nr nummer på film som skal hentes.
      * @return film med gitt nr. Om nr ikke finnes, returneres null.
      */
-    Film finnFilm(int nr);
+    Film finnFilm(int filmnr);
     /**
      * Legger til en ny film.
      * @param nyFilm
