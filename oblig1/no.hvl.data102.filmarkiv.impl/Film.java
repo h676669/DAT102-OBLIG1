@@ -51,7 +51,7 @@ public class Film {
     }
 
     public void setTittel(String tittel){this.tittel = tittel;}
-    public String getFilmselskap(String filmselskap){return filmselskap;}
+    public String getFilmselskap(){return filmselskap;}
     public void setFilmselskap(String filmselskap) {
         this.filmselskap = filmselskap;
     }
