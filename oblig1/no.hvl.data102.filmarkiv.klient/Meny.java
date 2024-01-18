@@ -77,23 +77,4 @@ public class Meny {
         filmarkiv.leggTilFilm(nummer2);
         filmarkiv.leggTilFilm(nummer3);
     }
-    private Film laggFilm(){
-        Scanner input = new Scanner(System.in);
-        System.out.println("skriv filmnr");
-        int filmnr = input.nextInt();
-
-        System.out.println("skriv År");
-        int ar = input.nextInt();
-
-        System.out.println("Skriv filmskaper");
-        String filmskaper = input.nextLine();
-
-        System.out.println("Skriv tittel");
-        String tittel = input.nextLine();
-
-        System.out.println("Skriv filmselskap");
-        String filmselskap = input.nextLine();
-
-        return new Film(filmnr,ar,filmskaper,tittel,filmselskap);
-    }
 }

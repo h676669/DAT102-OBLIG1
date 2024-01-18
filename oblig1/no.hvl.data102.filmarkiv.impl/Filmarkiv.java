@@ -112,4 +112,15 @@ public class Filmarkiv implements FilmarkivADT {
     public void setStorrelseFilm(int storrelseFilm){
         this.storrelseFilm = storrelseFilm;
     }
+    public void skrivUtFilmArkiv(){
+        for(int i = 0; i < storrelseFilm; i++){
+            System.out.println("\n -------------------");
+            System.out.print("\n Filmskaper: " + filmarkiv[i].getFilmskaper());
+            System.out.print("\n Tittel: " + filmarkiv[i].getTittel());
+            System.out.print("\n År: " + filmarkiv[i].getAr());
+            System.out.print("\n Filmnummer: " + filmarkiv[i].getFilmnr());
+            System.out.print("\n Filmselskap: " + filmarkiv[i].getFilmselskap());
+            System.out.print("\n Sjanger: " + filmarkiv[i].getSjanger());
+        }
+    }
 }

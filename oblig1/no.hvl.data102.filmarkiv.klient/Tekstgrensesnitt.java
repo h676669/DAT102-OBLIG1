@@ -2,6 +2,7 @@ package no.hvl.data102.filmarkiv.klient;
 
 import no.hvl.data102.filmarkiv.adt.FilmarkivADT;
 import no.hvl.data102.filmarkiv.impl.Film;
+import no.hvl.data102.filmarkiv.impl.Filmarkiv;
 import no.hvl.data102.filmarkiv.impl.Sjanger;
 
 import java.util.Scanner;
@@ -46,7 +47,8 @@ public class Tekstgrensesnitt {
 
     // Skriver ut alle filmer med en spesiell delstreng i tittelen
     public void skrivUtFilmDelstrengITittel(FilmarkivADT arkiv, String delstreng) {
-        arkiv.soekTittel(delstreng);
+        Film[] liste = arkiv.soekTittel(delstreng);
+
     }
 
     // Skriver ut alle Filmer av en produsent (produsent er delstreng)
