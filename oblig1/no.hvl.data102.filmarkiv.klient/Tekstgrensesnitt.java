@@ -12,18 +12,18 @@ public class Tekstgrensesnitt {
     public Film lesFilm() {
         film=new Film();
         Scanner lesInn = new Scanner(System.in);
-        System.out.print("Skriv inn filmnummer");
+        System.out.print("Skriv inn filmnummer: ");
         int filmnr = lesInn.nextInt();
-        System.out.print("Skriv inn år");
+        System.out.print("Skriv inn år: ");
         int ar = lesInn.nextInt();
         lesInn.nextLine();
-        System.out.print("Skriv inn filmskaper");
+        System.out.print("Skriv inn filmskaper: ");
         String filmskaper = lesInn.nextLine();
-        System.out.print("Skriv inn tittel");
+        System.out.print("Skriv inn tittel: ");
         String tittel = lesInn.nextLine();
-        System.out.print("Skriv inn filmselskap");
+        System.out.print("Skriv inn filmselskap: ");
         String filmselskap=lesInn.nextLine();
-        System.out.print("Skriv inn Sjanger");
+        System.out.print("Skriv inn Sjanger: ");
         String sjanger=lesInn.nextLine();
         film.setFilmnr(filmnr);
         film.setAr(ar);
@@ -58,6 +58,7 @@ public class Tekstgrensesnitt {
     // Skriver ut en enkel statistikk som inneholder antall filmer totalt
 // og hvor mange det er i hver sjanger.
     public void skrivUtStatistikk(FilmarkivADT arkiv) {
+        arkiv.antall();
 // TODO
     }
 // osv ... andre metoder
