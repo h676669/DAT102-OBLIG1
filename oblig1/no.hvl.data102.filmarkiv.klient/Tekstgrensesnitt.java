@@ -46,12 +46,12 @@ public class Tekstgrensesnitt {
 
     // Skriver ut alle filmer med en spesiell delstreng i tittelen
     public void skrivUtFilmDelstrengITittel(FilmarkivADT arkiv, String delstreng) {
-    arkiv.soekTittel(delstreng);
+        arkiv.soekTittel(delstreng);
     }
 
     // Skriver ut alle Filmer av en produsent (produsent er delstreng)
     public void skrivUtFilmProdusent(FilmarkivADT arkiv, String delstreng) {
-    arkiv.soekProdusent(delstreng);
+        arkiv.soekProdusent(delstreng);
     }
 
     // Skriver ut en enkel statistikk som inneholder antall filmer totalt
