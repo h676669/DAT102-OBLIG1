@@ -16,6 +16,7 @@ public class Tekstgrensesnitt {
         int filmnr = lesInn.nextInt();
         System.out.print("Skriv inn år");
         int ar = lesInn.nextInt();
+        lesInn.nextLine();
         System.out.print("Skriv inn filmskaper");
         String filmskaper = lesInn.nextLine();
         System.out.print("Skriv inn tittel");
