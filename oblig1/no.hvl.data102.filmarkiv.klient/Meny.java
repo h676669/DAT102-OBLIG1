@@ -21,9 +21,8 @@ public class Meny {
                 "\n 3: Slett film" +
                 "\n 4: Søk etter tittel" +
                 "\n 5: Søk etter produsent" +
-                "\n 6: Antall filmer" +
-                "\n 7: Antall sjangere" +
-                "\n 8: Stop");
+                "\n 6: Antall filmer og antall i hver sjanger" +
+                "\n 7: Stop");
 
         String inputString = insc.nextLine();
         int input = Integer.parseInt(inputString);
@@ -34,7 +33,7 @@ public class Meny {
             Scanner ibruk = new Scanner(System.in);
             switch (input){
                 case 1:
-                    filmarkiv.leggTilFilm(laggFilm());
+                    filmarkiv.leggTilFilm(tekstgr.lesFilm());
                     break;
                 case 2:
 
@@ -43,18 +42,17 @@ public class Meny {
 
                     break;
                 case 4:
-
+                    System.out.println("Skriv inn tittelen du vil søk etter");
+                    tekstgr.skrivUtFilmDelstrengITittel(filmarkiv,ibruk.nextLine());
                     break;
                 case 5:
-
+                    System.out.println("Hvilken produsent letter du etter? ");
+                    tekstgr.skrivUtFilmProdusent(filmarkiv,ibruk.nextLine());
                     break;
                 case 6:
-
+                    tekstgr.skrivUtStatistikk(filmarkiv);
                     break;
                 case 7:
-
-                    break;
-                case 8:
                     stop = true;
                     break;
                 default:
