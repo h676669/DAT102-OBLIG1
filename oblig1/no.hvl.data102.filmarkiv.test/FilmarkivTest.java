@@ -16,8 +16,7 @@ public class FilmarkivTest {
         testFilmer.leggTilFilm(testfilm1);
         testFilmer.leggTilFilm(testfilm1);
         assertEquals(testFilmer.antall(), 2);
+        testFilmer.slettFilm(1);
+        assertEquals(testFilmer.antall(),1);
     }
-
-    
-
 }
