@@ -50,6 +50,8 @@ public class Film {
         return tittel;
     }
 
+    public void setTittel(String tittel){this.tittel = tittel;}
+
     public void setFilmselskap(String filmselskap) {
         this.filmselskap = filmselskap;
     }
