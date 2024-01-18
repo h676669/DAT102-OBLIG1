@@ -14,13 +14,15 @@ public class FilmarkivTest {
         Film testfilm1 = new Film(10,2012,"test","test","test");
         Film testfilm2 = new Film(12,2011,"hei","hei","hei");
 
+
         testFilmer.leggTilFilm(testfilm1);
         testFilmer.leggTilFilm(testfilm1);
         testFilmer.leggTilFilm(testfilm2);
-        assertEquals(testFilmer.antall(), 3);
+        testFilmer.leggTilFilm(testfilm2);
+        assertEquals(testFilmer.antall(),4);
         System.out.println(testFilmer.toString());
-        //testFilmer.skrivUtFilmArkiv();
         System.out.println(testFilmer.getStorrelseFilm());
-        //testFilmer.betingetSkrivut("test");
+
+        testFilmer.skrivUtFilmListe(testFilmer.soekTittel("test"));
     }
 }

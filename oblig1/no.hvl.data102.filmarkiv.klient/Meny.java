@@ -15,8 +15,8 @@ public class Meny {
     }
     public void start(){
         boolean stop = false;
-
         leggTilStartFilmer(filmarkiv);
+
         while(!stop) {
             Scanner insc = new Scanner(System.in);
             System.out.println("Hva vil du?(skriv tallet til det du vil)" +
@@ -29,7 +29,9 @@ public class Meny {
                     "\n 7: Søk etter tittel med tillegsinfo"+
                     "\n 8: Stop");
             System.out.println("--------------------------------------------------");
-            String inputString = insc.nextLine();
+            System.out.println(": ");
+            String inputString = insc.next();
+
             int input = Integer.parseInt(inputString);
             Scanner ibruk = new Scanner(System.in);
 
@@ -70,9 +72,9 @@ public class Meny {
         }
     }
     private void leggTilStartFilmer(FilmarkivADT filmarkiv){
-        Film nummer1 = new Film();
-        Film nummer2 = new Film();
-        Film nummer3 = new Film();
+        Film nummer1 = new Film(10,2012,"test","test","test");
+        Film nummer2 = new Film(12,2011,"hei","hei","hei");
+        Film nummer3 = new Film(105,5690,"hadde","hadde","hadde");
         filmarkiv.leggTilFilm(nummer1);
         filmarkiv.leggTilFilm(nummer2);
         filmarkiv.leggTilFilm(nummer3);

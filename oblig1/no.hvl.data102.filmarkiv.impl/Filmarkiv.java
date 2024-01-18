@@ -8,28 +8,27 @@ public class Filmarkiv implements FilmarkivADT {
     private int storrelseFilm;
 
 
-    public Filmarkiv(int antall){
+    public Filmarkiv(int antall) {
         filmarkiv = new Film[antall];
         storrelseFilm = 0;
     }
+
     @Override
     public Film finnFilm(int nr) {
-        if(filmarkiv[nr] != null){
+        if (filmarkiv[nr] != null) {
             return filmarkiv[nr];
-        }
-        else {
+        } else {
             return null;
         }
     }
 
     @Override
     public boolean slettFilm(int filmnr) {
-        if(filmarkiv[filmnr] != null){
+        if (filmarkiv[filmnr] != null) {
             filmarkiv[filmnr] = null;
             storrelseFilm--;
             return true;
-        }
-        else {
+        } else {
             return false;
         }
     }
@@ -39,27 +38,26 @@ public class Filmarkiv implements FilmarkivADT {
     public Film[] soekTittel(String delstreng) {
         int nyLengde = 0;
         Film[] medDelStreng = new Film[storrelseFilm];
-        for(int i = 0; i < medDelStreng.length; i++){
-            if(filmarkiv[i].getTittel().contains(delstreng)){
+        for (int i = 0; i < medDelStreng.length; i++) {
+            if (filmarkiv[i].getTittel().contains(delstreng)) {
                 medDelStreng[nyLengde] = filmarkiv[i];
                 nyLengde++;
             }
         }
-
-        return trimTab(medDelStreng,storrelseFilm);
+        return trimTab(medDelStreng,nyLengde);
     }
 
     @Override
     public Film[] soekProdusent(String delstreng) {
         int nyLengde = 0;
         Film[] medDelStreng = new Film[storrelseFilm];
-        for(int i = 0; i < medDelStreng.length; i++){
-            if(filmarkiv[i].getFilmskaper().contains(delstreng)){
+        for (int i = 0; i < medDelStreng.length; i++) {
+            if (filmarkiv[i].getFilmskaper().contains(delstreng)) {
                 medDelStreng[nyLengde] = filmarkiv[i];
                 nyLengde++;
             }
         }
-        return trimTab(medDelStreng,storrelseFilm);
+        return trimTab(medDelStreng, nyLengde);
     }
 
     @Override
@@ -71,8 +69,8 @@ public class Filmarkiv implements FilmarkivADT {
     public int antall(Sjanger sjanger) {
         int nyLengde = 0;
         Film[] medDelStreng = new Film[storrelseFilm];
-        for(int i = 0; i < medDelStreng.length; i++){
-            if(filmarkiv[i].getSjanger() == sjanger){
+        for (int i = 0; i < medDelStreng.length; i++) {
+            if (filmarkiv[i].getSjanger() == sjanger) {
                 medDelStreng[nyLengde] = filmarkiv[i];
                 nyLengde++;
             }
@@ -82,21 +80,22 @@ public class Filmarkiv implements FilmarkivADT {
 
     @Override
     public void leggTilFilm(Film nyFilm) {
-        if(storrelseFilm != filmarkiv.length){
+        if (storrelseFilm != filmarkiv.length) {
             filmarkiv[storrelseFilm] = nyFilm;
             storrelseFilm++;
-        }
-        else{
+        } else {
             filmarkiv = kopier(filmarkiv);
         }
     }
-    private Film[] kopier(Film[] Filmarkiv){
-        Film[] kopi = new Film[Filmarkiv.length*2];
-        for(int i = 0; i < Filmarkiv.length;i++){
+
+    private Film[] kopier(Film[] Filmarkiv) {
+        Film[] kopi = new Film[Filmarkiv.length * 2];
+        for (int i = 0; i < Filmarkiv.length; i++) {
             kopi[i] = Filmarkiv[i];
         }
-        return trimTab(kopi,storrelseFilm);
+        return trimTab(kopi, storrelseFilm);
     }
+
     private Film[] trimTab(Film[] tab, int n) {
 // n er antall elementer
         Film[] nytab = new Film[n];
@@ -107,14 +106,17 @@ public class Filmarkiv implements FilmarkivADT {
         }
         return nytab;
     }
-    public int getStorrelseFilm(){
+
+    public int getStorrelseFilm() {
         return storrelseFilm;
     }
-    public void setStorrelseFilm(int storrelseFilm){
+
+    public void setStorrelseFilm(int storrelseFilm) {
         this.storrelseFilm = storrelseFilm;
     }
-    public void skrivUtFilmArkiv(){
-        for(int i = 0; i < storrelseFilm; i++){
+
+    public void skrivUtFilmArkiv() {
+        for (int i = 0; i < storrelseFilm; i++) {
             System.out.println("\n -------------------");
             System.out.print("\n Filmskaper: " + filmarkiv[i].getFilmskaper());
             System.out.print("\n Tittel: " + filmarkiv[i].getTittel());
@@ -124,14 +126,28 @@ public class Filmarkiv implements FilmarkivADT {
             System.out.print("\n Sjanger: " + filmarkiv[i].getSjanger());
         }
     }
+
     // Vil krasje siden storrelsefilm er større en mengde elementer i listen og skrivUtFilmArkiv vil da gi nullpointer
-    public void betingetSkrivut(String delString){
+    public void betingetSkrivut(String delString) {
         Filmarkiv skalSkrives = new Filmarkiv(storrelseFilm);
         Film[] sokTittelOutput = soekTittel(delString);
-        for(int i = 0; i < storrelseFilm; i++){
+        for (int i = 0; i < storrelseFilm; i++) {
             skalSkrives.leggTilFilm(sokTittelOutput[i]);
         }
 
         skalSkrives.skrivUtFilmArkiv();
+    }
+    public void skrivUtFilmListe(Film[] liste) {
+
+
+        for (int i = 0; i < liste.length; i++) {
+            System.out.println("\n -------------------");
+            System.out.print("\n Filmskaper: " + liste[i].getFilmskaper());
+            System.out.print("\n Tittel: " + liste[i].getTittel());
+            System.out.print("\n År: " + liste[i].getAr());
+            System.out.print("\n Filmnummer: " + liste[i].getFilmnr());
+            System.out.print("\n Filmselskap: " + liste[i].getFilmselskap());
+            System.out.print("\n Sjanger: " + liste[i].getSjanger());
+        }
     }
 }

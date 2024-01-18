@@ -43,13 +43,17 @@ public class Tekstgrensesnitt {
         System.out.println("Filmskaper: " + film.getFilmskaper());
         System.out.println("Tittel: " + film.getTittel());
         System.out.println("Filmselskap: " + film.getFilmselskap());
-        System.out.println("Sjanger: " + film.getSjanger().toString());
+        //System.out.println("Sjanger: " + film.getSjanger().toString());
     }
 
     // Skriver ut alle filmer med en spesiell delstreng i tittelen
     public void skrivUtFilmDelstrengITittel(FilmarkivADT arkiv, String delstreng) {
         Film[] liste = arkiv.soekTittel(delstreng);
 
+
+        for(int i = 0;i < liste.length-1;i++){
+           skrivUtFilm(liste[i]);
+        }
     }
 
     // Skriver ut alle Filmer av en produsent (produsent er delstreng)
