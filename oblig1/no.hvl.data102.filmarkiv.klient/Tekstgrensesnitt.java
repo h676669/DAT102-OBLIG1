@@ -2,6 +2,7 @@ package no.hvl.data102.filmarkiv.klient;
 
 import no.hvl.data102.filmarkiv.adt.FilmarkivADT;
 import no.hvl.data102.filmarkiv.impl.Film;
+import no.hvl.data102.filmarkiv.impl.Sjanger;
 
 import java.util.Scanner;
 
@@ -22,11 +23,13 @@ public class Tekstgrensesnitt {
         System.out.print("Skriv inn filmselskap");
         String filmselskap=lesInn.nextLine();
         System.out.print("Skriv inn Sjanger");
+        String sjanger=lesInn.nextLine();
         film.setFilmnr(filmnr);
         film.setAr(ar);
         film.setFilmskaper(filmskaper);
         film.setTittel(setTittel);
         film.setFilmselskap(filmselskap);
+        film.setSjanger(Sjanger.valueOf(sjanger));
         return film;
     }
 
@@ -38,6 +41,7 @@ public class Tekstgrensesnitt {
         System.out.println("Filmskaper: " + film.getFilmskaper());
         System.out.println("Tittel: " + film.getTittel());
         System.out.println("Filmselskap: " + film.getFilmselskap());
+        System.out.println("Sjanger: " + film.getSjanger().toString());
     }
 
     // Skriver ut alle filmer med en spesiell delstreng i tittelen
