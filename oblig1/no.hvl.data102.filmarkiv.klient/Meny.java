@@ -21,12 +21,10 @@ public class Meny {
             Scanner insc = new Scanner(System.in);
             System.out.println("Hva vil du?(skriv tallet til det du vil)" +
                     "\n 1: Legg til film" +
-                    "\n 2: Finn film" +
-                    "\n 3: Slett film" +
-                    "\n 4: Søk etter tittel" +
-                    "\n 5: Søk etter produsent" +
-                    "\n 6: Antall filmer og antall i hver sjanger" +
-                    "\n 7: Søk etter tittel med tillegsinfo"+
+                    "\n 2: Slett film" +
+                    "\n 3: Søk etter tittel" +
+                    "\n 4: Søk etter produsent" +
+                    "\n 5: Antall filmer og antall i hver sjanger" +
                     "\n 8: Stop");
             System.out.println("--------------------------------------------------");
             System.out.println(": ");
@@ -37,36 +35,39 @@ public class Meny {
 
             switch (input) {
                 case 1:
+                    //funker
                     filmarkiv.leggTilFilm(tekstgr.lesFilm());
                     break;
                 case 2:
-                    System.out.println("Skriv inn en delstring til filmen du leter etter");
-                    tekstgr.skrivUtFilmDelstrengITittel(filmarkiv, ibruk.nextLine());
-                    break;
-                case 3:
+                    //funker
                     System.out.println("Skriv inn filmnummeret til filmen du vil slette");
                     System.out.println("Filmnummeret kan finnest med bruk av 7:");
-                    filmarkiv.slettFilm(ibruk.nextInt());
+                    int filmnr = ibruk.nextInt();
+                    System.out.println(filmarkiv.slettFilm(filmnr));
                     break;
-                case 4:
+                case 3:
+                    //Funker
                     System.out.println("Skriv inn tittelen du vil søke etter");
                     tekstgr.skrivUtFilmDelstrengITittel(filmarkiv, ibruk.nextLine());
+                    System.out.println("--------------------------------------------------");
                     break;
-                case 5:
+                case 4:
+                    //Funker
                     System.out.println("Hvilken produsent letter du etter? ");
                     tekstgr.skrivUtFilmProdusent(filmarkiv, ibruk.nextLine());
+                    System.out.println("--------------------------------------------------");
+                    break;
+                case 5:
+                    tekstgr.skrivUtStatistikk(filmarkiv);
+                    System.out.println("--------------------------------------------------");
                     break;
                 case 6:
-                    tekstgr.skrivUtStatistikk(filmarkiv);
-                    break;
-                case 7:
-
-                    break;
-                case 8:
+                    //funker
                     stop = true;
                     break;
                 default:
                     System.out.println("skriv en lovlig verdi");
+                    System.out.println("--------------------------------------------------");
                     break;
             }
         }

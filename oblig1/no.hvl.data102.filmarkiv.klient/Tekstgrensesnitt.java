@@ -44,28 +44,30 @@ public class Tekstgrensesnitt {
         System.out.println("Tittel: " + film.getTittel());
         System.out.println("Filmselskap: " + film.getFilmselskap());
         //System.out.println("Sjanger: " + film.getSjanger().toString());
+        System.out.println("--------------------------------------------------");
     }
 
     // Skriver ut alle filmer med en spesiell delstreng i tittelen
     public void skrivUtFilmDelstrengITittel(FilmarkivADT arkiv, String delstreng) {
         Film[] liste = arkiv.soekTittel(delstreng);
-
-
-        for(int i = 0;i < liste.length-1;i++){
-           skrivUtFilm(liste[i]);
+        for(int i = 0; i < liste.length;i++){
+            skrivUtFilm(liste[i]);
         }
     }
 
     // Skriver ut alle Filmer av en produsent (produsent er delstreng)
     public void skrivUtFilmProdusent(FilmarkivADT arkiv, String delstreng) {
-        arkiv.soekProdusent(delstreng);
+        Film[] liste = arkiv.soekProdusent(delstreng);
+        for(int i = 0; i < liste.length;i++){
+            skrivUtFilm(liste[i]);
+        }
     }
 
     // Skriver ut en enkel statistikk som inneholder antall filmer totalt
-// og hvor mange det er i hver sjanger.
+    // og hvor mange det er i hver sjanger.
     public void skrivUtStatistikk(FilmarkivADT arkiv) {
         arkiv.antall();
-// TODO
+        // TODO
     }
-// osv ... andre metoder
+        // osv ... andre metoder
 }

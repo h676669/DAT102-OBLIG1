@@ -24,16 +24,17 @@ public class Filmarkiv implements FilmarkivADT {
 
     @Override
     public boolean slettFilm(int filmnr) {
-        if (filmarkiv[filmnr] != null) {
-            filmarkiv[filmnr] = null;
-            storrelseFilm--;
-            return true;
-        } else {
-            return false;
+        boolean gjort = false;
+        for(int i = 0; i <storrelseFilm;i++){
+            if(filmarkiv[i].getFilmnr() == filmnr){
+                filmarkiv[i] = null;
+                gjort = true;
+            }
         }
+        return gjort;
     }
 
-    //Gir nullpointerexception vist delstengen ikkje finnest
+    //Gir nullpointerexception vist delstrengen ikkje finnest
     @Override
     public Film[] soekTittel(String delstreng) {
         int nyLengde = 0;
@@ -127,7 +128,7 @@ public class Filmarkiv implements FilmarkivADT {
         }
     }
 
-    // Vil krasje siden storrelsefilm er større en mengde elementer i listen og skrivUtFilmArkiv vil da gi nullpointer
+    // Vil crashe siden storrelsefilm er større en mengde elementer i listen og skrivUtFilmArkiv vil da gi nullpointer
     public void betingetSkrivut(String delString) {
         Filmarkiv skalSkrives = new Filmarkiv(storrelseFilm);
         Film[] sokTittelOutput = soekTittel(delString);
@@ -138,7 +139,6 @@ public class Filmarkiv implements FilmarkivADT {
         skalSkrives.skrivUtFilmArkiv();
     }
     public void skrivUtFilmListe(Film[] liste) {
-
 
         for (int i = 0; i < liste.length; i++) {
             System.out.println("\n -------------------");
