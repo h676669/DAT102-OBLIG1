@@ -36,7 +36,8 @@ public class Meny {
                     filmarkiv.leggTilFilm(tekstgr.lesFilm());
                     break;
                 case 2:
-
+                    System.out.println("Skriv inn en delstring til filmen du leter etter");
+                    tekstgr.skrivUtFilmDelstrengITittel(filmarkiv,ibruk.nextLine());
                     break;
                 case 3:
 
