@@ -19,7 +19,7 @@ public class Tekstgrensesnitt {
         System.out.print("Skriv inn filmskaper");
         String filmskaper = lesInn.nextLine();
         System.out.print("Skriv inn tittel");
-        String setTittel = lesInn.nextLine();
+        String tittel = lesInn.nextLine();
         System.out.print("Skriv inn filmselskap");
         String filmselskap=lesInn.nextLine();
         System.out.print("Skriv inn Sjanger");
@@ -27,7 +27,7 @@ public class Tekstgrensesnitt {
         film.setFilmnr(filmnr);
         film.setAr(ar);
         film.setFilmskaper(filmskaper);
-        film.setTittel(setTittel);
+        film.setTittel(tittel);
         film.setFilmselskap(filmselskap);
         film.setSjanger(Sjanger.valueOf(sjanger));
         return film;
