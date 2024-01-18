@@ -34,6 +34,7 @@ public class Filmarkiv implements FilmarkivADT {
         }
     }
 
+    //Gir nullpointerexception vist delstengen ikkje finnest
     @Override
     public Film[] soekTittel(String delstreng) {
         int nyLengde = 0;
@@ -45,7 +46,7 @@ public class Filmarkiv implements FilmarkivADT {
             }
         }
 
-        return medDelStreng;
+        return trimTab(medDelStreng,storrelseFilm);
     }
 
     @Override
@@ -58,7 +59,7 @@ public class Filmarkiv implements FilmarkivADT {
                 nyLengde++;
             }
         }
-        return medDelStreng;
+        return trimTab(medDelStreng,storrelseFilm);
     }
 
     @Override
@@ -94,7 +95,7 @@ public class Filmarkiv implements FilmarkivADT {
         for(int i = 0; i < Filmarkiv.length;i++){
             kopi[i] = Filmarkiv[i];
         }
-        return kopi;
+        return trimTab(kopi,storrelseFilm);
     }
     private Film[] trimTab(Film[] tab, int n) {
 // n er antall elementer
@@ -122,5 +123,15 @@ public class Filmarkiv implements FilmarkivADT {
             System.out.print("\n Filmselskap: " + filmarkiv[i].getFilmselskap());
             System.out.print("\n Sjanger: " + filmarkiv[i].getSjanger());
         }
+    }
+    // Vil krasje siden storrelsefilm er større en mengde elementer i listen og skrivUtFilmArkiv vil da gi nullpointer
+    public void betingetSkrivut(String delString){
+        Filmarkiv skalSkrives = new Filmarkiv(storrelseFilm);
+        Film[] sokTittelOutput = soekTittel(delString);
+        for(int i = 0; i < storrelseFilm; i++){
+            skalSkrives.leggTilFilm(sokTittelOutput[i]);
+        }
+
+        skalSkrives.skrivUtFilmArkiv();
     }
 }

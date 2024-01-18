@@ -14,25 +14,25 @@ public class Meny {
         this.filmarkiv = filmarkiv;
     }
     public void start(){
-        Scanner insc = new Scanner(System.in);
-        System.out.println("Hva vil du?(skriv tallet til det du vil)" +
-                "\n 1: Legg til film" +
-                "\n 2: Finn film" +
-                "\n 3: Slett film" +
-                "\n 4: Søk etter tittel" +
-                "\n 5: Søk etter produsent" +
-                "\n 6: Antall filmer og antall i hver sjanger" +
-                "\n 7: Finn filmnummer"+
-                "\n 8: Stop");
-        System.out.println("|:");
-
-        String inputString = insc.nextLine();
-        int input = Integer.parseInt(inputString);
         boolean stop = false;
 
         leggTilStartFilmer(filmarkiv);
         while(!stop) {
+            Scanner insc = new Scanner(System.in);
+            System.out.println("Hva vil du?(skriv tallet til det du vil)" +
+                    "\n 1: Legg til film" +
+                    "\n 2: Finn film" +
+                    "\n 3: Slett film" +
+                    "\n 4: Søk etter tittel" +
+                    "\n 5: Søk etter produsent" +
+                    "\n 6: Antall filmer og antall i hver sjanger" +
+                    "\n 7: Søk etter tittel med tillegsinfo"+
+                    "\n 8: Stop");
+            System.out.println("--------------------------------------------------");
+            String inputString = insc.nextLine();
+            int input = Integer.parseInt(inputString);
             Scanner ibruk = new Scanner(System.in);
+
             switch (input) {
                 case 1:
                     filmarkiv.leggTilFilm(tekstgr.lesFilm());
@@ -43,7 +43,7 @@ public class Meny {
                     break;
                 case 3:
                     System.out.println("Skriv inn filmnummeret til filmen du vil slette");
-                    System.out.println("Filmnummeret kan finnest med bruk av ");
+                    System.out.println("Filmnummeret kan finnest med bruk av 7:");
                     filmarkiv.slettFilm(ibruk.nextInt());
                     break;
                 case 4:

@@ -12,11 +12,15 @@ public class FilmarkivTest {
     public void test1() {
         Filmarkiv testFilmer = new Filmarkiv(10);
         Film testfilm1 = new Film(10,2012,"test","test","test");
+        Film testfilm2 = new Film(12,2011,"hei","hei","hei");
 
         testFilmer.leggTilFilm(testfilm1);
         testFilmer.leggTilFilm(testfilm1);
-        assertEquals(testFilmer.antall(), 2);
+        testFilmer.leggTilFilm(testfilm2);
+        assertEquals(testFilmer.antall(), 3);
         System.out.println(testFilmer.toString());
-        testFilmer.skrivUtFilmArkiv();
+        //testFilmer.skrivUtFilmArkiv();
+        System.out.println(testFilmer.getStorrelseFilm());
+        //testFilmer.betingetSkrivut("test");
     }
 }
