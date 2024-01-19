@@ -121,29 +121,20 @@ public class Filmarkiv implements FilmarkivADT {
         this.storrelseFilm = storrelseFilm;
     }
 
-    //Funker ikkje vist filmarkivet sin første verdi er null
     public void skrivUtFilmArkiv() {
         for (int i = 0; i < storrelseFilm; i++) {
-            System.out.println("\n -------------------");
-            System.out.print("\n Filmskaper: " + filmarkiv[i].getFilmskaper());
-            System.out.print("\n Tittel: " + filmarkiv[i].getTittel());
-            System.out.print("\n År: " + filmarkiv[i].getAr());
-            System.out.print("\n Filmnummer: " + filmarkiv[i].getFilmnr());
-            System.out.print("\n Filmselskap: " + filmarkiv[i].getFilmselskap());
-            System.out.print("\n Sjanger: " + filmarkiv[i].getSjanger());
+            if(filmarkiv[i] != null{
+                System.out.println("\n -------------------");
+                System.out.print("\n Filmskaper: " + filmarkiv[i].getFilmskaper());
+                System.out.print("\n Tittel: " + filmarkiv[i].getTittel());
+                System.out.print("\n År: " + filmarkiv[i].getAr());
+                System.out.print("\n Filmnummer: " + filmarkiv[i].getFilmnr());
+                System.out.print("\n Filmselskap: " + filmarkiv[i].getFilmselskap());
+                System.out.print("\n Sjanger: " + filmarkiv[i].getSjanger());
+            }
         }
     }
 
-    // Vil crashe siden storrelsefilm er større en mengde elementer i listen og skrivUtFilmArkiv vil da gi nullpointer
-    public void betingetSkrivut(String delString) {
-        Filmarkiv skalSkrives = new Filmarkiv(storrelseFilm);
-        Film[] sokTittelOutput = soekTittel(delString);
-        for (int i = 0; i < storrelseFilm; i++) {
-            skalSkrives.leggTilFilm(sokTittelOutput[i]);
-        }
-
-        skalSkrives.skrivUtFilmArkiv();
-    }
     public void skrivUtFilmListe(Film[] liste) {
 
         for (int i = 0; i < liste.length; i++) {
