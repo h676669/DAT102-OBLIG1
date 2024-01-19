@@ -123,7 +123,7 @@ public class Filmarkiv implements FilmarkivADT {
 
     public void skrivUtFilmArkiv() {
         for (int i = 0; i < storrelseFilm; i++) {
-            if(filmarkiv[i] != null{
+            if(filmarkiv[i] != null){
                 System.out.println("\n -------------------");
                 System.out.print("\n Filmskaper: " + filmarkiv[i].getFilmskaper());
                 System.out.print("\n Tittel: " + filmarkiv[i].getTittel());
