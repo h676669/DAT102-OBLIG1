@@ -20,9 +20,19 @@ public class Tekstgrensesnitt {
         String tittel = lesInn.nextLine();
         System.out.print("Skriv inn filmselskap: ");
         String filmselskap=lesInn.nextLine();
-        System.out.print("Skriv inn Sjanger: ");
-        String sjanger=lesInn.nextLine();
-        return new Film(filmnr,ar,tittel,filmselskap,sjanger);
+        System.out.print("Skriv inn Sjanger fra 1 - 4: ");
+        while (lesInn.nextInt() < 1 || lesInn.nextInt() > 4) {
+            System.out.println("Omg, prøv igjen");
+        }
+        Sjanger sjanger = switch (lesInn.nextInt()) {
+            case 1 -> Sjanger.ACTION;
+            case 2 -> Sjanger.DRAMA;
+            case 3 -> Sjanger.HISTORY;
+            case 4 -> Sjanger.SCIFI;
+            case 5 -> Sjanger.TEST;
+            default -> null;
+        };
+        return new Film(filmnr,ar,filmskaper,tittel,filmselskap,sjanger);
     }
 
 
@@ -34,7 +44,7 @@ public class Tekstgrensesnitt {
         System.out.println("Filmskaper: " + film.getFilmskaper());
         System.out.println("Tittel: " + film.getTittel());
         System.out.println("Filmselskap: " + film.getFilmselskap());
-        //System.out.println("Sjanger: " + film.getSjanger().toString());
+        System.out.println("Sjanger: " + film.getSjanger().toString());
         System.out.println("--------------------------------------------------");
     }
 
