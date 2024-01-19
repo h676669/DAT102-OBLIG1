@@ -25,6 +25,7 @@ public class Meny {
                     "\n 3: Søk etter tittel" +
                     "\n 4: Søk etter produsent" +
                     "\n 5: Antall filmer og antall i hver sjanger" +
+                    "\n 6: Finn film med Film nummer"+
                     "\n 8: Stop");
             System.out.println("--------------------------------------------------");
             System.out.println(": ");
@@ -33,11 +34,11 @@ public class Meny {
 
             switch (Integer.parseInt(insc.next())) {
                 case 1:
-                    //funker
+                    //Funker
                     filmarkiv.leggTilFilm(tekstgr.lesFilm());
                     break;
                 case 2:
-                    //funker
+                    //Funker
                     System.out.println("Skriv inn filmnummeret til filmen du vil slette");
                     System.out.println("Filmnummeret kan finnest med bruk av 7:");
                     int filmnr = ibruk.nextInt();
@@ -56,11 +57,16 @@ public class Meny {
                     System.out.println("--------------------------------------------------");
                     break;
                 case 5:
+                    //Funker
                     tekstgr.skrivUtStatistikk(filmarkiv);
                     System.out.println("--------------------------------------------------");
                     break;
                 case 6:
-                    //funker
+                    System.out.println("Skriv inn filmnummeret til fimen du leter etter");
+                    tekstgr.skrivUtFilm(filmarkiv.finnFilm(ibruk.nextInt()));
+                    break;
+                case 8:
+                    //Funker
                     stop = true;
                     break;
                 default:

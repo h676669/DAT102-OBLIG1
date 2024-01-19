@@ -15,11 +15,21 @@ public class Filmarkiv implements FilmarkivADT {
 
     @Override
     public Film finnFilm(int nr) {
-        if (filmarkiv[nr] != null) {
-            return filmarkiv[nr];
-        } else {
-            return null;
-        }
+        Film film = null;
+        boolean gjort = false;
+
+       for(int i = 0; i <storrelseFilm;i++){
+           if(filmarkiv[i].getFilmnr() == nr ){
+               film = filmarkiv[i];
+               gjort = true;
+           }
+       }
+       if(gjort){
+           return film;
+       }
+       else {
+           return null;
+       }
     }
 
     @Override

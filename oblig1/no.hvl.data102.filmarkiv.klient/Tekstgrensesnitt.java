@@ -28,6 +28,7 @@ public class Tekstgrensesnitt {
 
     // Skriver ut en film med alle opplysninger på skjerm (husk tekst for sjanger)
     public void skrivUtFilm(Film film) {
+
         System.out.println("Filmnummer: " + film.getFilmnr());
         System.out.println("År: " + film.getAr());
         System.out.println("Filmskaper: " + film.getFilmskaper());
