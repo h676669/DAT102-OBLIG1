@@ -11,7 +11,6 @@ public class Tekstgrensesnitt {
     private Film film;
     // Leser inn opplysninger om en film fra tastatur og returnere et Film-objekt
     public Film lesFilm() {
-        film=new Film();
         Scanner lesInn = new Scanner(System.in);
         System.out.print("Skriv inn filmnummer: ");
         int filmnr = lesInn.nextInt();
@@ -32,7 +31,7 @@ public class Tekstgrensesnitt {
         film.setTittel(tittel);
         film.setFilmselskap(filmselskap);
         film.setSjanger(Sjanger.valueOf(sjanger));
-        return film;
+        return new Film(filmnr,ar,tittel,filmselskap,sjanger);
     }
 
 
