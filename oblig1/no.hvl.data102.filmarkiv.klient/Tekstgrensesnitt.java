@@ -29,6 +29,7 @@ public class Tekstgrensesnitt {
             case 2 -> Sjanger.DRAMA;
             case 3 -> Sjanger.HISTORY;
             case 4 -> Sjanger.SCIFI;
+            case 5 -> Sjanger.TEST;
             default -> null;
         };
         return new Film(filmnr,ar,filmskaper,tittel,filmselskap,sjanger);
