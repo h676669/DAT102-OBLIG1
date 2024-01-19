@@ -67,16 +67,7 @@ public class Film {
 
     @Override
     public boolean equals(Object film2) {
-        if (film2 == null) {
-            return false;
-        }
-        if (this == film2) {
-            return true;
-        }
-
-        Film other = (Film) film2;
-
-        return this.filmnr == other.getFilmnr();
+        return film2 instanceof Film && (this == film2 || this.filmnr == ((Film) film2).getFilmnr());
     }
 
     @Override
