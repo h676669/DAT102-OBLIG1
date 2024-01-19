@@ -20,7 +20,7 @@ public class Tekstgrensesnitt {
         String tittel = lesInn.nextLine();
         System.out.print("Skriv inn filmselskap: ");
         String filmselskap=lesInn.nextLine();
-        System.out.print("Skriv inn Sjanger: ");
+        System.out.print("Skriv inn Sjanger fra 1 - 4: ");
         while (lesInn.nextInt() < 1 || lesInn.nextInt() > 4) {
             System.out.println("Omg, prøv igjen");
         }
