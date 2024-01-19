@@ -57,10 +57,10 @@ public class Tekstgrensesnitt {
     // og hvor mange det er i hver sjanger.
     public void skrivUtStatistikk(FilmarkivADT arkiv) {
         System.out.println(arkiv.antall());
-        System.out.println((Sjanger.ACTION));
-        System.out.println((Sjanger.DRAMA));
-        System.out.println((Sjanger.HISTORY));
-        System.out.println((Sjanger.SCIFI));
+        System.out.println(arkiv.antall(Sjanger.ACTION));
+        System.out.println(arkiv.antall(Sjanger.DRAMA));
+        System.out.println(arkiv.antall(Sjanger.HISTORY));
+        System.out.println(arkiv.antall(Sjanger.SCIFI));
     }
         // osv ... andre metoder
 }
