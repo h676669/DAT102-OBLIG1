@@ -16,13 +16,13 @@ public class FilmarkivTest {
 
 
         testFilmer.leggTilFilm(testfilm1);
-        testFilmer.leggTilFilm(testfilm1);
         testFilmer.leggTilFilm(testfilm2);
+        assertEquals(2,testFilmer.antall());
+        testFilmer.slettFilm(12);
+        assertEquals(1,testFilmer.antall());
         testFilmer.leggTilFilm(testfilm2);
-        assertEquals(testFilmer.antall(),4);
-        System.out.println(testFilmer.toString());
-        System.out.println(testFilmer.getStorrelseFilm());
 
-        testFilmer.skrivUtFilmListe(testFilmer.soekTittel("test"));
-    }
+
+
+}
 }

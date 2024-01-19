@@ -16,20 +16,14 @@ public class Filmarkiv implements FilmarkivADT {
     @Override
     public Film finnFilm(int nr) {
         Film film = null;
-        boolean gjort = false;
-
-       for(int i = 0; i <storrelseFilm;i++){
-           if(filmarkiv[i].getFilmnr() == nr ){
-               film = filmarkiv[i];
-               gjort = true;
+        for(int i = 0; i <storrelseFilm;i++) {
+           if(filmarkiv[i] != null){
+              if(filmarkiv[i].getFilmnr() == nr){
+                  film = filmarkiv[i];
+               }
            }
-       }
-       if(gjort){
-           return film;
-       }
-       else {
-           return null;
-       }
+        }
+        return film;
     }
 
     @Override
@@ -37,6 +31,7 @@ public class Filmarkiv implements FilmarkivADT {
         boolean gjort = false;
         for(int i = 0; i <storrelseFilm;i++){
             if(filmarkiv[i].getFilmnr() == filmnr){
+                storrelseFilm--;
                 filmarkiv[i] = null;
                 gjort = true;
             }
@@ -126,6 +121,7 @@ public class Filmarkiv implements FilmarkivADT {
         this.storrelseFilm = storrelseFilm;
     }
 
+    //Funker ikkje vist filmarkivet sin første verdi er null
     public void skrivUtFilmArkiv() {
         for (int i = 0; i < storrelseFilm; i++) {
             System.out.println("\n -------------------");
