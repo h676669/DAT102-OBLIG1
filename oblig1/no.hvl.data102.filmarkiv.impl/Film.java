@@ -14,12 +14,13 @@ public class Film {
 
     }
 
-    public Film(int filmnr, int ar, String filmskaper, String tittel, String filmselskap) {
+    public Film(int filmnr, int ar, String filmskaper, String tittel, String filmselskap, Sjanger sjanger) {
         this.filmnr = filmnr;
         this.ar = ar;
         this.filmskaper = filmskaper;
         this.tittel = tittel;
         this.filmselskap = filmselskap;
+        this.sjanger = sjanger;
     }
 
     public int getFilmnr() {
