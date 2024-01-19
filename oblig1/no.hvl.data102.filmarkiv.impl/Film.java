@@ -73,6 +73,7 @@ public class Film {
         if (this == film2) {
             return true;
         }
+
         Film other = (Film) film2;
 
         return this.filmnr == other.getFilmnr();

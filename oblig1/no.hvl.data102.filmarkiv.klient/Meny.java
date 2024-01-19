@@ -3,6 +3,7 @@ package no.hvl.data102.filmarkiv.klient;
 import no.hvl.data102.filmarkiv.adt.FilmarkivADT;
 import no.hvl.data102.filmarkiv.impl.Film;
 import no.hvl.data102.filmarkiv.impl.Filmarkiv;
+import no.hvl.data102.filmarkiv.impl.Sjanger;
 
 import java.util.Scanner;
 
@@ -76,8 +77,8 @@ public class Meny {
         }
     }
     private void leggTilStartFilmer(FilmarkivADT filmarkiv){
-        filmarkiv.leggTilFilm(new Film(10,2012,"test","test","test"));
-        filmarkiv.leggTilFilm(new Film(12,2011,"hei","hei","hei"));
-        filmarkiv.leggTilFilm(new Film(105,5690,"hadde","hadde","hadde"));
+        filmarkiv.leggTilFilm(new Film(10,2012,"test","test","test", Sjanger.ACTION));
+        filmarkiv.leggTilFilm(new Film(12,2011,"hei","hei","hei",Sjanger.SCIFI));
+        filmarkiv.leggTilFilm(new Film(105,5690,"hadde","hadde","hadde",Sjanger.HISTORY));
     }
 }
