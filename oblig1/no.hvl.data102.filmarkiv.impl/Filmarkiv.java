@@ -135,8 +135,8 @@ public class Filmarkiv implements FilmarkivADT {
         }
     }
 
+    //Forventer liste uten null verdier
     public void skrivUtFilmListe(Film[] liste) {
-
         for (int i = 0; i < liste.length; i++) {
             System.out.println("\n -------------------");
             System.out.print("\n Filmskaper: " + liste[i].getFilmskaper());
