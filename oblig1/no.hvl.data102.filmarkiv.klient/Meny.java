@@ -28,12 +28,10 @@ public class Meny {
                     "\n 8: Stop");
             System.out.println("--------------------------------------------------");
             System.out.println(": ");
-            String inputString = insc.next();
 
-            int input = Integer.parseInt(inputString);
             Scanner ibruk = new Scanner(System.in);
 
-            switch (input) {
+            switch (Integer.parseInt(insc.next())) {
                 case 1:
                     //funker
                     filmarkiv.leggTilFilm(tekstgr.lesFilm());
@@ -68,16 +66,12 @@ public class Meny {
                 default:
                     System.out.println("skriv en lovlig verdi");
                     System.out.println("--------------------------------------------------");
-                    break;
             }
         }
     }
     private void leggTilStartFilmer(FilmarkivADT filmarkiv){
-        Film nummer1 = new Film(10,2012,"test","test","test");
-        Film nummer2 = new Film(12,2011,"hei","hei","hei");
-        Film nummer3 = new Film(105,5690,"hadde","hadde","hadde");
-        filmarkiv.leggTilFilm(nummer1);
-        filmarkiv.leggTilFilm(nummer2);
-        filmarkiv.leggTilFilm(nummer3);
+        filmarkiv.leggTilFilm(new Film(10,2012,"test","test","test"));
+        filmarkiv.leggTilFilm(new Film(12,2011,"hei","hei","hei"));
+        filmarkiv.leggTilFilm(new Film(105,5690,"hadde","hadde","hadde"));
     }
 }

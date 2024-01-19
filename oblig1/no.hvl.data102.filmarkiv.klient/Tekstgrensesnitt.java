@@ -2,12 +2,10 @@ package no.hvl.data102.filmarkiv.klient;
 
 import no.hvl.data102.filmarkiv.adt.FilmarkivADT;
 import no.hvl.data102.filmarkiv.impl.Film;
-import no.hvl.data102.filmarkiv.impl.Filmarkiv;
 import no.hvl.data102.filmarkiv.impl.Sjanger;
 import java.util.Scanner;
 
 public class Tekstgrensesnitt {
-    private Film film;
     // Leser inn opplysninger om en film fra tastatur og returnere et Film-objekt
     public Film lesFilm() {
         Scanner lesInn = new Scanner(System.in);
@@ -24,12 +22,6 @@ public class Tekstgrensesnitt {
         String filmselskap=lesInn.nextLine();
         System.out.print("Skriv inn Sjanger: ");
         String sjanger=lesInn.nextLine();
-        film.setFilmnr(filmnr);
-        film.setAr(ar);
-        film.setFilmskaper(filmskaper);
-        film.setTittel(tittel);
-        film.setFilmselskap(filmselskap);
-        film.setSjanger(Sjanger.valueOf(sjanger));
         return new Film(filmnr,ar,tittel,filmselskap,sjanger);
     }
 
