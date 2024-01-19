@@ -22,7 +22,7 @@ public class Tekstgrensesnitt {
         String filmselskap=lesInn.nextLine();
         System.out.print("Skriv inn Sjanger: ");
         String sjanger=lesInn.nextLine();
-        return new Film(filmnr,ar,tittel,filmselskap,sjanger);
+        return new Film(filmnr,ar,filmskaper,tittel,filmselskap,sjanger);
     }
 
 
@@ -34,7 +34,7 @@ public class Tekstgrensesnitt {
         System.out.println("Filmskaper: " + film.getFilmskaper());
         System.out.println("Tittel: " + film.getTittel());
         System.out.println("Filmselskap: " + film.getFilmselskap());
-        //System.out.println("Sjanger: " + film.getSjanger().toString());
+        System.out.println("Sjanger: " + film.getSjanger().toString());
         System.out.println("--------------------------------------------------");
     }
 
