@@ -41,7 +41,6 @@ public class FilmarkivTest {
     }
     @Test
     public void testSoek(){
-
         testFilmer = new Filmarkiv(10);
         testfilm1 = new Film(10,2012,"test","test","test", Sjanger.TEST);
         testfilm2 = new Film(12,2011,"hei","hei","hei",Sjanger.TEST);
