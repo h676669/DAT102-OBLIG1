@@ -9,11 +9,6 @@ public class Film {
 
     private Sjanger sjanger;
 
-
-    public Film() {
-
-    }
-
     public Film(int filmnr, int ar, String filmskaper, String tittel, String filmselskap, Sjanger sjanger) {
         this.filmnr = filmnr;
         this.ar = ar;

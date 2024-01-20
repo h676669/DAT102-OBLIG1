@@ -147,4 +147,16 @@ public class Filmarkiv implements FilmarkivADT {
             System.out.print("\n Sjanger: " + liste[i].getSjanger());
         }
     }
+    //hovudsakelig brukt for testing
+    public boolean filmFinnest(Film film){
+        boolean finnestEnkel = false;
+
+        for(int i = 0; i < storrelseFilm;i++){
+            if (filmarkiv[i] == film) {
+                finnestEnkel = true;
+                break;
+            }
+        }
+        return (finnestEnkel);
+    }
 }
