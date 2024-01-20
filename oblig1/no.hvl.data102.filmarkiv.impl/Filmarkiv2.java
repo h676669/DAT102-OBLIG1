@@ -1,22 +1,20 @@
 package no.hvl.data102.filmarkiv.impl;
 
 import no.hvl.data102.filmarkiv.adt.FilmarkivADT;
-import no.hvl.data102.filmarkiv.impl.Film;
-import no.hvl.data102.filmarkiv.impl.Sjanger;
 
 public class Filmarkiv2 implements FilmarkivADT {
 
-    private LinearNode<Film> first;
+    private LinearNode<Film> start;
     private int antall;
 
     public Filmarkiv2() {
-        first = null;
+        start = null;
         antall = 0;
     }
 
     @Override
     public Film finnFilm(int filmnr) {
-        LinearNode<Film> currentNode = first;
+        LinearNode<Film> currentNode = start;
 
         while (currentNode != null) {
             if (currentNode.getData().getFilmnr() == filmnr) {
@@ -31,26 +29,26 @@ public class Filmarkiv2 implements FilmarkivADT {
     public void leggTilFilm(Film nyFilm) {
         LinearNode<Film> node = new LinearNode<>(nyFilm);
 
-        if (first.getData() == null) {
-            first = node;
+        if (start.getData() == null) {
+            start = node;
         } else {
-            LinearNode<Film> last = first;
-            while (last.getNeste() != null) {
-                last = last.neste;
+            LinearNode<Film> currentNode = start;
+            while (currentNode.getNeste() != null) {
+                currentNode = currentNode.neste;
             }
-            last.neste = node;
+            currentNode.neste = node;
         }
         antall++;
     }
 
     @Override
     public boolean slettFilm(int filmnr) {
-        if (first.getData().getFilmnr() == filmnr) {
-            first = first.neste;
+        if (start.getData().getFilmnr() == filmnr) {
+            start = start.neste;
             return true;
         }
 
-        LinearNode<Film> currentNode = first;
+        LinearNode<Film> currentNode = start;
 
         while (currentNode != null)  {
             if (currentNode.neste.getData().getFilmnr() == filmnr) {
@@ -64,7 +62,7 @@ public class Filmarkiv2 implements FilmarkivADT {
 
     @Override
     public Film[] soekTittel(String delstreng) {
-        LinearNode<Film> currentNode = first;
+        LinearNode<Film> currentNode = start;
         Film[] n = new Film[antall];
         int i = 0;
         while (currentNode != null) {
@@ -79,7 +77,7 @@ public class Filmarkiv2 implements FilmarkivADT {
 
     @Override
     public Film[] soekProdusent(String delstreng) {
-        LinearNode<Film> currentNode = first;
+        LinearNode<Film> currentNode = start;
         Film[] n = new Film[antall];
         int i = 0;
         while (currentNode != null) {
@@ -94,7 +92,7 @@ public class Filmarkiv2 implements FilmarkivADT {
 
     @Override
     public int antall(Sjanger sjanger) {
-        LinearNode<Film> currentNode = first;
+        LinearNode<Film> currentNode = start;
         int antall = 0;
         while (currentNode != null) {
             if (currentNode.getData().getSjanger() == sjanger) {
