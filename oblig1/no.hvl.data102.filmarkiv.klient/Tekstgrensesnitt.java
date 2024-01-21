@@ -3,6 +3,8 @@ package no.hvl.data102.filmarkiv.klient;
 import no.hvl.data102.filmarkiv.adt.FilmarkivADT;
 import no.hvl.data102.filmarkiv.impl.Film;
 import no.hvl.data102.filmarkiv.impl.Sjanger;
+import org.junit.platform.commons.function.Try;
+
 import java.util.Scanner;
 
 public class Tekstgrensesnitt {
@@ -20,18 +22,19 @@ public class Tekstgrensesnitt {
         String tittel = lesInn.nextLine();
         System.out.print("Skriv inn filmselskap: ");
         String filmselskap=lesInn.nextLine();
-        System.out.print("Skriv inn Sjanger fra 1 - 4: ");
-        while (lesInn.nextInt() < 1 || lesInn.nextInt() > 4) {
-            System.out.println("Omg, prøv igjen");
-        }
-        Sjanger sjanger = switch (lesInn.nextInt()) {
-            case 1 -> Sjanger.ACTION;
-            case 2 -> Sjanger.DRAMA;
-            case 3 -> Sjanger.HISTORY;
-            case 4 -> Sjanger.SCIFI;
-            case 5 -> Sjanger.TEST;
-            default -> null;
-        };
+        System.out.print("Skriv inn sjanger: ");
+
+        Sjanger sjanger = null;
+        boolean valid = false;
+        do {
+            try {
+                sjanger = Sjanger.valueOf(lesInn.nextLine().toUpperCase());
+                valid = true;
+            } catch (Exception e) {
+                System.out.println("Invalid sjanger, prøv igjen...");
+            }
+        } while (!valid);
+
         return new Film(filmnr,ar,filmskaper,tittel,filmselskap,sjanger);
     }
 
@@ -68,10 +71,10 @@ public class Tekstgrensesnitt {
     // og hvor mange det er i hver sjanger.
     public void skrivUtStatistikk(FilmarkivADT arkiv) {
         System.out.println(arkiv.antall());
-        System.out.println(arkiv.antall(Sjanger.ACTION));
-        System.out.println(arkiv.antall(Sjanger.DRAMA));
-        System.out.println(arkiv.antall(Sjanger.HISTORY));
-        System.out.println(arkiv.antall(Sjanger.SCIFI));
+        Sjanger[] sjangtab = Sjanger.values();
+        for (Sjanger s: sjangtab) {
+            System.out.println(arkiv.antall(s));
+        }
     }
         // osv ... andre metoder
 }

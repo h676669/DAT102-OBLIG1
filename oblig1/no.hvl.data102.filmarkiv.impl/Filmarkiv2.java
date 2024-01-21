@@ -2,6 +2,8 @@ package no.hvl.data102.filmarkiv.impl;
 
 import no.hvl.data102.filmarkiv.adt.FilmarkivADT;
 
+import java.util.ArrayList;
+
 public class Filmarkiv2 implements FilmarkivADT {
 
     private LinearNode<Film> start;
@@ -15,7 +17,6 @@ public class Filmarkiv2 implements FilmarkivADT {
     @Override
     public Film finnFilm(int filmnr) {
         LinearNode<Film> currentNode = start;
-
         while (currentNode != null) {
             if (currentNode.getData().getFilmnr() == filmnr) {
                 return currentNode.getData();
@@ -29,7 +30,7 @@ public class Filmarkiv2 implements FilmarkivADT {
     public void leggTilFilm(Film nyFilm) {
         LinearNode<Film> node = new LinearNode<>(nyFilm);
 
-        if (start.getData() == null) {
+        if (start == null) {
             start = node;
         } else {
             LinearNode<Film> currentNode = start;
@@ -45,14 +46,15 @@ public class Filmarkiv2 implements FilmarkivADT {
     public boolean slettFilm(int filmnr) {
         if (start.getData().getFilmnr() == filmnr) {
             start = start.neste;
+            antall--;
             return true;
         }
 
         LinearNode<Film> currentNode = start;
-
         while (currentNode != null)  {
             if (currentNode.neste.getData().getFilmnr() == filmnr) {
                 currentNode.neste = currentNode.getNeste().neste;
+                antall--;
                 return true;
             }
             currentNode = currentNode.neste;
@@ -60,34 +62,30 @@ public class Filmarkiv2 implements FilmarkivADT {
         return false;
     }
 
-    @Override
-    public Film[] soekTittel(String delstreng) {
-        LinearNode<Film> currentNode = start;
-        Film[] n = new Film[antall];
-        int i = 0;
-        while (currentNode != null) {
-            if (currentNode.getData().getTittel().contains(delstreng)) {
-                n[i] = currentNode.getData();
+        @Override
+        public Film[] soekTittel(String delstreng) {
+            LinearNode<Film> currentNode = start;
+            ArrayList<Film> a = new ArrayList<>();
+            while (currentNode != null) {
+                if (currentNode.getData().getTittel().contains(delstreng)) {
+                    a.add(currentNode.getData());
+                }
+                currentNode = currentNode.neste;
             }
-            i++;
-            currentNode = currentNode.neste;
+            return a.toArray(new Film[0]);
         }
-     return n;
-    }
 
     @Override
     public Film[] soekProdusent(String delstreng) {
         LinearNode<Film> currentNode = start;
-        Film[] n = new Film[antall];
-        int i = 0;
+        ArrayList<Film> a = new ArrayList<>();
         while (currentNode != null) {
             if (currentNode.getData().getFilmskaper().contains(delstreng)) {
-                n[i] = currentNode.getData();
+                a.add(currentNode.getData());
             }
-            i++;
             currentNode = currentNode.neste;
         }
-        return n;
+        return a.toArray(new Film[0]);
     }
 
     @Override
@@ -97,6 +95,7 @@ public class Filmarkiv2 implements FilmarkivADT {
         while (currentNode != null) {
             if (currentNode.getData().getSjanger() == sjanger) {
                 antall++;
+                currentNode = currentNode.neste;
             }
         }
         return antall;
