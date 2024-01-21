@@ -33,9 +33,11 @@ public class Filmarkiv2Test {
         testFilmer = new Filmarkiv2();
         testfilm1 = new Film(10,2012,"test","test","test", Sjanger.TEST);
         testfilm2 = new Film(12,2011,"hei","hei","hei",Sjanger.TEST);
-        testFilmer.leggTilFilm(testfilm1);
         testFilmer.leggTilFilm(testfilm2);
+        testFilmer.leggTilFilm(testfilm1);
+        
         assertEquals(testFilmer.finnFilm(10), testfilm1);
+        assertEquals(testFilmer.finnFilm(12), testfilm2);
 
     }
     @Test
