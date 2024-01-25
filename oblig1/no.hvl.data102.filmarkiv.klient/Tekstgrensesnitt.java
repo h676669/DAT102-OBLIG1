@@ -41,14 +41,15 @@ public class Tekstgrensesnitt {
 
     // Skriver ut en film med alle opplysninger på skjerm (husk tekst for sjanger)
     public void skrivUtFilm(Film film) {
-
-        System.out.println("Filmnummer: " + film.getFilmnr());
-        System.out.println("År: " + film.getAr());
-        System.out.println("Filmskaper: " + film.getFilmskaper());
-        System.out.println("Tittel: " + film.getTittel());
-        System.out.println("Filmselskap: " + film.getFilmselskap());
-        System.out.println("Sjanger: " + film.getSjanger().toString());
-        System.out.println("--------------------------------------------------");
+        if(film != null){
+            System.out.println("Filmnummer: " + film.getFilmnr());
+            System.out.println("År: " + film.getAr());
+            System.out.println("Filmskaper: " + film.getFilmskaper());
+            System.out.println("Tittel: " + film.getTittel());
+            System.out.println("Filmselskap: " + film.getFilmselskap());
+            System.out.println("Sjanger: " + film.getSjanger().toString());
+            System.out.println("--------------------------------------------------");
+        }
     }
 
     // Skriver ut alle filmer med en spesiell delstreng i tittelen
@@ -70,10 +71,10 @@ public class Tekstgrensesnitt {
     // Skriver ut en enkel statistikk som inneholder antall filmer totalt
     // og hvor mange det er i hver sjanger.
     public void skrivUtStatistikk(FilmarkivADT arkiv) {
-        System.out.println(arkiv.antall());
+        System.out.println(arkiv.antall()+ " antall filmer");
         Sjanger[] sjangtab = Sjanger.values();
         for (Sjanger s: sjangtab) {
-            System.out.println(arkiv.antall(s));
+            System.out.println(arkiv.antall(s) + " av Sjanger " +s);
         }
     }
         // osv ... andre metoder

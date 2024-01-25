@@ -41,7 +41,7 @@ public class Meny {
                 case 2:
                     //Funker
                     System.out.println("Skriv inn filmnummeret til filmen du vil slette");
-                    System.out.println("Filmnummeret kan finnest med bruk av 7:");
+                    System.out.println("Filmnummeret kan finnest med å søke etter tittel/produsent:");
                     int filmnr = ibruk.nextInt();
                     System.out.println(filmarkiv.slettFilm(filmnr));
                     break;
@@ -80,5 +80,6 @@ public class Meny {
         filmarkiv.leggTilFilm(new Film(10,2012,"test","test","test", Sjanger.ACTION));
         filmarkiv.leggTilFilm(new Film(12,2011,"hei","hei","hei",Sjanger.SCIFI));
         filmarkiv.leggTilFilm(new Film(105,5690,"hadde","hadde","hadde",Sjanger.HISTORY));
+        filmarkiv.leggTilFilm(new Film(106,5690,"hadde","hadde","hadde",Sjanger.HISTORY));
     }
 }
