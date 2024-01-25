@@ -65,6 +65,7 @@ public class Meny {
                 case 6:
                     System.out.println("Skriv inn filmnummeret til fimen du leter etter");
                     tekstgr.skrivUtFilm(filmarkiv.finnFilm(ibruk.nextInt()));
+                    System.out.println("--------------------------------------------------");
                     break;
                 case 8:
                     //Funker

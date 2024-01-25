@@ -3,8 +3,6 @@ package no.hvl.data102.filmarkiv.klient;
 import no.hvl.data102.filmarkiv.adt.FilmarkivADT;
 import no.hvl.data102.filmarkiv.impl.Film;
 import no.hvl.data102.filmarkiv.impl.Sjanger;
-import org.junit.platform.commons.function.Try;
-
 import java.util.Scanner;
 
 public class Tekstgrensesnitt {
