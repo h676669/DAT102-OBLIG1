@@ -73,15 +73,13 @@ public class Filmarkiv implements FilmarkivADT {
 
     @Override
     public int antall(Sjanger sjanger) {
-        int nyLengde = 0;
-        Film[] medDelStreng = new Film[storrelseFilm];
-        for (int i = 0; i < medDelStreng.length; i++) {
-            if (filmarkiv[i].getSjanger() == sjanger) {
-                medDelStreng[nyLengde] = filmarkiv[i];
-                nyLengde++;
+        int antall = 0;
+        for (Film film : filmarkiv) {
+            if ((film != null) && film.getSjanger() == sjanger) {
+                antall++;
             }
         }
-        return medDelStreng.length;
+        return antall;
     }
 
     @Override
