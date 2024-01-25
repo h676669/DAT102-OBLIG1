@@ -103,7 +103,7 @@ public class Filmarkiv implements FilmarkivADT {
     }
 
     private Film[] trimTab(Film[] tab, int n) {
-// n er antall elementer
+        // n er antall elementer
         Film[] nytab = new Film[n];
         int i = 0;
         while (i < n) {
@@ -123,7 +123,7 @@ public class Filmarkiv implements FilmarkivADT {
 
     public void skrivUtFilmArkiv() {
         for (int i = 0; i < storrelseFilm; i++) {
-            if(filmarkiv[i] != null){
+               if(filmarkiv[i] != null){
                 System.out.println("\n -------------------");
                 System.out.print("\n Filmskaper: " + filmarkiv[i].getFilmskaper());
                 System.out.print("\n Tittel: " + filmarkiv[i].getTittel());
@@ -134,7 +134,6 @@ public class Filmarkiv implements FilmarkivADT {
             }
         }
     }
-
     //Forventer liste uten null verdier
     public void skrivUtFilmListe(Film[] liste) {
         for (int i = 0; i < liste.length; i++) {
@@ -146,17 +145,5 @@ public class Filmarkiv implements FilmarkivADT {
             System.out.print("\n Filmselskap: " + liste[i].getFilmselskap());
             System.out.print("\n Sjanger: " + liste[i].getSjanger());
         }
-    }
-    //hovudsakelig brukt for testing
-    public boolean filmFinnest(Film film){
-        boolean finnestEnkel = false;
-
-        for(int i = 0; i < storrelseFilm;i++){
-            if (filmarkiv[i] == film) {
-                finnestEnkel = true;
-                break;
-            }
-        }
-        return (finnestEnkel);
     }
 }
