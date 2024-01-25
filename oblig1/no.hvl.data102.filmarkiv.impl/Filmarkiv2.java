@@ -83,8 +83,8 @@ public class Filmarkiv2 implements FilmarkivADT {
         while (currentNode != null) {
             if (currentNode.getData().getSjanger() == sjanger) {
                 antall++;
-                currentNode = currentNode.getNeste();
             }
+            currentNode = currentNode.getNeste();
         }
         return antall;
     }
