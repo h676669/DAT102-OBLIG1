@@ -37,35 +37,45 @@ public class Meny {
                 case 1:
                     //Funker
                     filmarkiv.leggTilFilm(tekstgr.lesFilm());
+                    pause();
                     break;
                 case 2:
                     //Funker
                     System.out.println("Skriv inn filmnummeret til filmen du vil slette");
                     System.out.println("Filmnummeret kan finnest med å søke etter tittel/produsent:");
                     int filmnr = ibruk.nextInt();
-                    System.out.println(filmarkiv.slettFilm(filmnr));
+                    if (filmarkiv.slettFilm(filmnr)) {
+                        System.out.println("Filmen har blitt slettet");
+                    } else {
+                        System.out.println("Filmen finnes ikke i arkivet");
+                    }
+                    pause();
                     break;
                 case 3:
                     //Funker
                     System.out.println("Skriv inn tittelen du vil søke etter");
                     tekstgr.skrivUtFilmDelstrengITittel(filmarkiv, ibruk.nextLine());
                     System.out.println("--------------------------------------------------");
+                    pause();
                     break;
                 case 4:
                     //Funker
                     System.out.println("Hvilken produsent letter du etter? ");
                     tekstgr.skrivUtFilmProdusent(filmarkiv, ibruk.nextLine());
                     System.out.println("--------------------------------------------------");
+                    pause();
                     break;
                 case 5:
                     //Funker
                     tekstgr.skrivUtStatistikk(filmarkiv);
                     System.out.println("--------------------------------------------------");
+                    pause();
                     break;
                 case 6:
                     System.out.println("Skriv inn filmnummeret til fimen du leter etter");
                     tekstgr.skrivUtFilm(filmarkiv.finnFilm(ibruk.nextInt()));
                     System.out.println("--------------------------------------------------");
+                    pause();
                     break;
                 case 8:
                     //Funker
@@ -82,5 +92,11 @@ public class Meny {
         filmarkiv.leggTilFilm(new Film(12,2011,"hei","hei","hei",Sjanger.SCIFI));
         filmarkiv.leggTilFilm(new Film(105,5690,"hadde","hadde","hadde",Sjanger.HISTORY));
         filmarkiv.leggTilFilm(new Film(106,5690,"hadde","hadde","hadde",Sjanger.HISTORY));
+    }
+
+    private void pause() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Trykk ein hvilken som helst tast på hustelefonen for å gå videre");
+        scanner.nextLine();
     }
 }
